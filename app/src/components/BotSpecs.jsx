@@ -37,7 +37,7 @@ const BotSpecs = () => {
     doFetch();
   }, []);
 
-  if (error) return <p>{error.message}</p>;
+  if (error) return <CouldNotLoadData />;
 
   return (
     <div className="ui segment">
