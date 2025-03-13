@@ -5,9 +5,10 @@ web application's routing structure.
 */
 
 /* eslint-disable no-unused-vars */
-import BotSpecsPage from './pages/BotSpecsPage'
-import NotFoundPage from './pages/NotFoundPage'
-import BotPage from './pages/BotsPage'
+import BotSpecsPage from "./pages/BotSpecsPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import BotPage from "./pages/BotsPage";
+import { Route, Routes } from "react-router-dom";
 
 // TODO: import Routes and Route
 
@@ -19,9 +20,16 @@ const App = () => {
 
   return (
     <div className="App">
-      <BotPage />
+      <Routes>
+        // Route for the homepage
+        <Route path="/" element={<BotPage />} />
+        // Route for the robotCard
+        <Route path="/robots/:id" element={<BotSpecsPage />} />
+        // Fallback (Not found page)
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
